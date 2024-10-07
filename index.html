@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Académico</title>
+    <link rel="stylesheet" href="src/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+        <header>
+            <nav>
+                <img src="/logo.svg" alt="Logo del Colegio" width="50" height="50">
+                <ul>
+                    <li><a href="/" aria-current="page">Inicio</a></li>
+                    <li><a href="/institucion">Nuestra Institución</a></li>
+                    <li><a href="/academica">Gestión académica</a></li>
+                    <li><a href="/administrativa">Gestión administrativa</a></li>
+                    <li><a href="src/pages/login.html">Ingresar</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main id="main-content">
+            <h1>BIENVENIDOS</h1>
+
+            <section class="featured-images" aria-label="Imágenes destacadas">
+                <figure>
+                    <img src="/placeholder-1.jpg" alt="Descripción de la imagen destacada 1">
+                </figure>
+                <figure>
+                    <img src="/placeholder-2.jpg" alt="Descripción de la imagen destacada 2">
+                </figure>
+                <figure>
+                    <img src="/placeholder-3.jpg" alt="Descripción de la imagen destacada 3">
+                </figure>
+            </section>
+
+            <section class="school-newspaper">
+                <h2>Periódico Escolar</h2>
+                <article class="news-item">
+                    <div class="news-content">
+                        <h3>Noticia 1</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                    <figure class="news-image">
+                        <img src="/news-1.jpg" alt="Imagen ilustrativa de la Noticia 1">
+                    </figure>
+                </article>
+                <!-- Repite para las otras noticias -->
+            </section>
+
+            <aside class="calendar">
+                <h2>Calendario</h2>
+                <ul>
+                    <li>
+                        <time datetime="2023-05-15">15 de Mayo, 2023</time>
+                        <p>Evento 1</p>
+                    </li>
+                    <li>
+                        <time datetime="2023-05-20">20 de Mayo, 2023</time>
+                        <p>Evento 2</p>
+                    </li>
+                    <li>
+                        <time datetime="2023-05-25">25 de Mayo, 2023</time>
+                        <p>Evento 3</p>
+                    </li>
+                </ul>
+            </aside>
+        </main>
+
+        <footer>
+            <p>&copy; 2023 Portal Académico. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <script src="src/js/script.js"></script>
+</body>
+</html>

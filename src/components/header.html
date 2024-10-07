@@ -1,0 +1,17 @@
+<header>
+    <nav>
+        <img src="../images/logo.svg" alt="Logo del Colegio" width="50" height="50">
+        <ul>
+            <li><a href="/index.html">Inicio</a></li>
+            <li id="user-name"></li>
+            <li><button id="logout-button" style="display: none;">Cerrar Sesión</button></li>
+        </ul>
+    </nav>
+</header>
+<script>
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user) {
+        document.getElementById('user-name').textContent = `Bienvenido, ${user.name}`;
+        document.getElementById('logout-button').style.display = 'inline-block';
+    }
+</script>
