@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 loginMessage.textContent = 'Inicio de sesión exitoso. Redirigiendo...';
                 loginMessage.className = 'message success';
                 setTimeout(() => {
-                    window.location.href = userType === 'student' ? '/src/pages/student-dashboard.html' : '/src/pages/teacher-dashboard.html';
+                    window.location.href = `${userType}-dashboard.html`;
                 }, 2000);
             } else {
                 throw new Error(response.message);

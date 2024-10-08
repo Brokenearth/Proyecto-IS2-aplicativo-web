@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - Portal Académico</title>
+    <link rel="stylesheet" href="src/css/style.css">
+</head>
+<body>
+    <div id="header"></div>
+
+    <main class="container">
+        <h1>Panel de Administración</h1>
+        <form id="admin-form" class="admin-form">
+            <div class="form-group">
+                <label for="mission">Misión:</label>
+                <textarea id="mission" name="mission" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="vision">Visión:</label>
+                <textarea id="vision" name="vision" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="hymn">Himno:</label>
+                <textarea id="hymn" name="hymn" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="shield">Escudo:</label>
+                <textarea id="shield" name="shield" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="flag">Bandera:</label>
+                <textarea id="flag" name="flag" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="principles">Principios institucionales:</label>
+                <textarea id="principles" name="principles" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="values">Valores institucionales:</label>
+                <textarea id="values" name="values" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="campuses">Sedes:</label>
+                <textarea id="campuses" name="campuses" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="pei">PEI:</label>
+                <textarea id="pei" name="pei" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="manual">Manual de convivencia:</label>
+                <textarea id="manual" name="manual" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="study-plan">Plan de estudio:</label>
+                <textarea id="study-plan" name="study-plan" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="platforms">Enlaces de plataformas académicas:</label>
+                <textarea id="platforms" name="platforms" rows="4"></textarea>
+            </div>
+            <button type="submit">Guardar cambios</button>
+        </form>
+        <p id="admin-message" class="message"></p>
+    </main>
+
+    <div id="footer"></div>
+
+    <script src="src/js/script.js"></script>
+    <script src="src/js/admin.js"></script>
+</body>
+</html>
