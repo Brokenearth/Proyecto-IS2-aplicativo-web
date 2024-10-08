@@ -1,17 +1,37 @@
+<!-- src/components/header.html -->
 <header>
     <nav>
-        <img src="../images/logo.svg" alt="Logo del Colegio" width="50" height="50">
+        <a href="/index.html"><img src="../../src/images/logo.svg" alt="Logo del Colegio" width="200" height="50"></a>
         <ul>
-            <li><a href="/index.html">Inicio</a></li>
-            <li id="user-name"></li>
+            <li><a href="/index.html" aria-current="page">Inicio</a></li>
+            <li><a href="/institucion">Nuestra Institución</a></li>
+            <li><a href="/academica">Gestión académica</a></li>
+            <li><a href="/administrativa">Gestión administrativa</a></li>
+            <li><a href="/src/pages/login.html" id="login-link">Ingresar</a></li>
+            <li id="user-name" style="display: none;"></li>
             <li><button id="logout-button" style="display: none;">Cerrar Sesión</button></li>
         </ul>
     </nav>
 </header>
 <script>
     const user = JSON.parse(localStorage.getItem('user'));
+    const userNameElement = document.getElementById('user-name');
+    const logoutButton = document.getElementById('logout-button');
+    const loginLink = document.getElementById('login-link');
+
     if (user) {
-        document.getElementById('user-name').textContent = `Bienvenido, ${user.name}`;
-        document.getElementById('logout-button').style.display = 'inline-block';
+        userNameElement.textContent = `Bienvenido, ${user.name}`;
+        userNameElement.style.display = 'inline-block';
+        logoutButton.style.display = 'inline-block';
+        loginLink.style.display = 'none';
+    } else {
+        userNameElement.style.display = 'none';
+        logoutButton.style.display = 'none';
+        loginLink.style.display = 'inline-block';
     }
+
+    logoutButton.addEventListener('click', () => {
+        localStorage.removeItem('user');
+        window.location.href = '/index.html';
+    });
 </script>

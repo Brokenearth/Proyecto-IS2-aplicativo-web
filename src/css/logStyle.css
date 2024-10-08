@@ -1,17 +1,48 @@
-/* Estilos para el formulario de login y restablecimiento de contraseña */
+/* src/css/logStyle.css */
+
+header {
+    background-color: #f8f9fa;
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 100px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 2rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+nav ul li a:hover {
+    color: #007bff;
+}
+
 .container {
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
 }
 
-.login-form, .admin-form {
+.login-form {
     background-color: #f9f9f9;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    max-width: 400px;
-    margin: 0 auto;
 }
 
 .form-group {
@@ -24,7 +55,7 @@
 }
 
 .form-group input,
-.form-group select, .form-group textarea {
+.form-group select {
     width: 100%;
     padding: 8px;
     border: 1px solid #ddd;
@@ -71,4 +102,13 @@ button:hover {
 
 #forgot-password:hover {
     text-decoration: underline;
+}
+
+footer {
+    background-color: #f8f9fa;
+    color: #333;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }

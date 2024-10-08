@@ -1,6 +1,7 @@
+/* src/css/style.css */
 /* Estilos base */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     color: #333;
     margin: 0;
@@ -93,12 +94,6 @@ h1 {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    float: left;
-    width: 60%;
-}
-
-.school-newspaper article.reverse {
-    flex-direction: row-reverse;
 }
 
 .news-content, .news-image {
@@ -119,8 +114,6 @@ aside.calendar {
     background-color: #e9ecef;
     border-radius: 8px;
     padding: 1.5rem;
-    float: right;
-    width: 30%;
 }
 
 aside.calendar ul {
@@ -142,17 +135,16 @@ aside.calendar li:last-child {
 
 /* Estilos del pie de página */
 footer {
-    background-color: ghostwhite;
-    color: black;
+    background-color: #f8f9fa;
+    color: #333;
     text-align: center;
-    position:fixed;
-    bottom: 0;
-    width: 100%;
+    padding: 0.1rem 0;
+    
 }
 
 /* Estilos responsivos */
 @media (max-width: 768px) {
-    .school-newspaper article, .school-newspaper article.reverse {
+    .school-newspaper article {
         flex-direction: column;
     }
 
@@ -191,9 +183,55 @@ footer {
     }
 }
 
-.dashboard-item {
+/* Estilos para el panel de administración */
+.admin-form {
     background-color: #f9f9f9;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.message {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
 }

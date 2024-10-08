@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,76 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal Académico</title>
     <link rel="stylesheet" href="src/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-        <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
-        <header>
-            <nav>
-                <a href="index.html"><img src="src/images/logo.svg" alt="Logo del Colegio" width="200" height="50"></a>
-                <ul>
-                    <li><a href="/" aria-current="page">Inicio</a></li>
-                    <li><a href="/institucion">Nuestra Institución</a></li>
-                    <li><a href="/academica">Gestión académica</a></li>
-                    <li><a href="/administrativa">Gestión administrativa</a></li>
-                    <li><a href="src/pages/login.html">Ingresar</a></li>
-                </ul>
-            </nav>
-        </header>
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+    <header id="header"></header>
 
-        <div class="container">
+    <div class="container">
         <main id="main-content">
             <h1>BIENVENIDOS</h1>
+            <div id="user-welcome" style="display: none;">
+                <h2>Bienvenido, <span id="user-name"></span></h2>
+                <p>Has iniciado sesión como estudiante.</p>
+            </div>
 
             <section class="featured-images" aria-label="Imágenes destacadas">
                 <figure>
-                    <img src="src/images/nidea.png" alt="Directivos y estudiantes de primaria">
+                    <img src="src/images/nidea.png" alt="Directivos y estudiantes de primaria" loading="lazy">
                 </figure>
                 <figure>
-                    <img src="src/images/Frente_colegio.jpg" alt="Foto del frente del colegio">
+                    <img src="src/images/Frente_colegio.jpg" alt="Foto del frente del colegio" loading="lazy">
                 </figure>
                 <figure>
-                    <img src="src/images/Foto_participacion_foro_nacional.jpg" alt="Foto de participación en el foro nacional por parte del colegio">
+                    <img src="src/images/Foto_participacion_foro_nacional.jpg" alt="Foto de participación en el foro nacional por parte del colegio" loading="lazy">
                 </figure>
             </section>
 
             <section class="school-newspaper">
                 <h2>Periódico Escolar</h2>
-                <article class="news-item">
-                    <div class="news-content">
-                        <h3>Noticia 1</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                    <figure class="news-image">
-                        <img src="/news-1.jpg" alt="Imagen ilustrativa de la Noticia 1">
-                    </figure>
-                </article>
-                <!-- Repite para las otras noticias -->
+                <div id="news-container"></div>
             </section>
 
             <aside class="calendar">
                 <h2>Calendario</h2>
-                <ul>
-                    <li>
-                        <time datetime="2023-05-15">15 de Mayo, 2023</time>
-                        <p>Evento 1</p>
-                    </li>
-                    <li>
-                        <time datetime="2023-05-20">20 de Mayo, 2023</time>
-                        <p>Evento 2</p>
-                    </li>
-                    <li>
-                        <time datetime="2023-05-25">25 de Mayo, 2023</time>
-                        <p>Evento 3</p>
-                    </li>
-                </ul>
+                <ul id="calendar-events"></ul>
             </aside>
         </main>
     </div>
 
-    <footer>
-        <p>&copy; 2024 Portal Académico. Todos los derechos reservados.</p>
-    </footer>
+    <footer id="footer"></footer>
 
-    <script src="src/js/script.js"></script>
+    <script src="src/js/script.js" type="module"></script>
 </body>
 </html>

@@ -1,5 +1,64 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Navegación sticky
+// src/js/script.js
+import { loadComponent, checkAuth, logout } from './utils.js';
+import { getNews, getCalendarEvents } from './api.js';
+
+document.addEventListener('DOMContentLoaded', async () => {
+    loadComponent('header', 'src/components/header.html');
+    loadComponent('footer', 'src/components/footer.html');
+
+    const user = checkAuth();
+    if (user) {
+        const userWelcome = document.getElementById('user-welcome');
+        const userName = document.getElementById('user-name');
+        if (userWelcome && userName) {
+            userWelcome.style.display = 'block';
+            userName.textContent = user.name;
+        }
+    }
+
+    const logoutButton = document.getElementById('logout-button');
+    if (logoutButton) {
+        logoutButton.addEventListener('click', logout);
+    }
+
+    await loadNews();
+    await loadCalendarEvents();
+    setupStickyNavigation();
+});
+
+async function loadNews() {
+    const newsContainer = document.getElementById('news-container');
+    const news = await getNews();
+    news.forEach(item => {
+        const article = document.createElement('article');
+        article.className = 'news-item';
+        article.innerHTML = `
+            <div class="news-content">
+                <h3>${item.title}</h3>
+                <p>${item.content}</p>
+            </div>
+            <figure class="news-image">
+                <img src="${item.imageUrl}" alt="${item.imageAlt}" loading="lazy">
+            </figure>
+        `;
+        newsContainer.appendChild(article);
+    });
+}
+
+async function loadCalendarEvents() {
+    const calendarList = document.getElementById('calendar-events');
+    const events = await getCalendarEvents();
+    events.forEach(event => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+            <time datetime="${event.date}">${event.formattedDate}</time>
+            <p>${event.description}</p>
+        `;
+        calendarList.appendChild(li);
+    });
+}
+
+function setupStickyNavigation() {
     const header = document.querySelector('header');
     const sticky = header.offsetTop;
 
@@ -10,83 +69,4 @@ document.addEventListener('DOMContentLoaded', () => {
             header.classList.remove('sticky');
         }
     });
-
-    // Carrusel de imágenes destacadas
-    const featuredImages = document.querySelectorAll('.featured-images img');
-    let currentImageIndex = 0;
-
-    function showNextImage() {
-        featuredImages[currentImageIndex].classList.remove('active');
-        currentImageIndex = (currentImageIndex + 1) % featuredImages.length;
-        featuredImages[currentImageIndex].classList.add('active');
-    }
-
-    setInterval(showNextImage, 5000);
-
-    // Animación de aparición para las noticias
-    const newsItems = document.querySelectorAll('.school-newspaper article');
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    newsItems.forEach(item => observer.observe(item));
-
-    // Filtro de eventos del calendario
-    const calendarItems = document.querySelectorAll('.calendar li');
-    const filterInput = document.createElement('input');
-    filterInput.type = 'text';
-    filterInput.placeholder = 'Filtrar eventos...';
-    filterInput.classList.add('calendar-filter');
-    document.querySelector('.calendar').insertBefore(filterInput, document.querySelector('.calendar ul'));
-
-    filterInput.addEventListener('input', (e) => {
-        const filterText = e.target.value.toLowerCase();
-        calendarItems.forEach(item => {
-            const eventText = item.textContent.toLowerCase();
-            item.style.display = eventText.includes(filterText) ? 'flex' : 'none';
-        });
-    });
-});
-
-import { checkAuth, logout } from './auth.js';
-
-// Función para cargar componentes HTML
-function loadComponent(elementId, componentPath) {
-    fetch(componentPath)
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById(elementId).innerHTML = data;
-        })
-        .catch(error => console.error('Error cargando el componente:', error));
 }
-
-// Cargar componentes cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', () => {
-    loadComponent('header', '../components/header.html');
-    loadComponent('footer', '../components/footer.html');
-
-    // Verificar autenticación en páginas protegidas
-    if (window.location.pathname.includes('dashboard')) {
-        const user = checkAuth();
-        if (user) {
-            document.getElementById('user-name').textContent = user.name;
-        }
-    }
-
-    // Agregar evento de logout
-    const logoutButton = document.getElementById('logout-button');
-    if (logoutButton) {
-        logoutButton.addEventListener('click', logout);
-    }
-});
